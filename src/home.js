@@ -31,13 +31,22 @@ export default function createNavBar() {
   navBarIcons.setAttribute('id', 'navBarIcons')
   let navBarIcon1 = document.createElement('div')
   navBarIcon1.className = 'navBarIcon'
-  navBarIcon1.innerText = 'Icon'
+  let searchIcon = document.createElement('span')
+  searchIcon.className = 'material-symbols-outlined'
+  searchIcon.innerText = 'search'
+  navBarIcon1.appendChild(searchIcon)
   let navBarIcon2 = document.createElement('div')
   navBarIcon2.className = 'navBarIcon'
-  navBarIcon2.innerText = 'Icon'
+  let favIcon = document.createElement('span')
+  favIcon.className = 'material-symbols-outlined'
+  favIcon.innerText = 'favorite'
+  navBarIcon2.appendChild(favIcon)
   let navBarIcon3 = document.createElement('div')
   navBarIcon3.className = 'navBarIcon'
-  navBarIcon3.innerText = 'Icon'
+  let cartIcon = document.createElement('span')
+  cartIcon.className = 'material-symbols-outlined'
+  cartIcon.innerText = 'shopping_cart'
+  navBarIcon3.appendChild(cartIcon)
 
   navBarMenu.append(navBarItem1, navBarItem2, navBarItem3)
   navBarIcons.append(navBarIcon1, navBarIcon2, navBarIcon3)
