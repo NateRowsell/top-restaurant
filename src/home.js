@@ -1,7 +1,6 @@
-import ImageMain from './assets/img/home-page-big.jpg'
 import LogoImage from './assets/img/Logo.png'
 
-export default function createNavBar() {
+export function createNavBar() {
   //Main container for Nav bar
   let navContainer = document.createElement('div')
   navContainer.setAttribute('id', 'navContainer')
@@ -17,12 +16,15 @@ export default function createNavBar() {
   let navBarMenu = document.createElement('div')
   navBarMenu.setAttribute('id', 'navBarMenu')
   let navBarItem1 = document.createElement('div')
+  navBarItem1.id = 'renderHome'
   navBarItem1.className = 'navBarItem'
   navBarItem1.innerText = 'Home'
   let navBarItem2 = document.createElement('div')
+  navBarItem2.id = 'renderMenu'
   navBarItem2.className = 'navBarItem'
   navBarItem2.innerText = 'Menu'
   let navBarItem3 = document.createElement('div')
+  navBarItem3.id = 'renderAbout'
   navBarItem3.className = 'navBarItem'
   navBarItem3.innerText = 'About'
 
@@ -57,12 +59,27 @@ export default function createNavBar() {
   mainContainer.appendChild(navContainer)
 }
 
-export function createMainImage() {
-  const MainImage = new Image()
-  MainImage.src = ImageMain
-  let imageContainer = document.createElement('div')
-  imageContainer
+export function renderBackground() {
+  let mainDiv = document.getElementById('content')
+  mainDiv.classList.add('homeBackground')
+}
 
-  let mainContainer = document.getElementById('content')
-  mainContainer.appendChild(navContainer)
+export function renderHomeContent() {
+  let mainDiv = document.getElementById('content')
+  let homeDiv = document.createElement('div')
+  let homeTitle = document.createElement('h1')
+  let homeText = document.createElement('p')
+  homeDiv.id = 'homeContent'
+  homeTitle.textContent = 'The Cake Shop'
+  homeText.textContent =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vitae odio id tortor sagittis iaculis.'
+  homeDiv.append(homeTitle, homeText)
+  mainDiv.appendChild(homeDiv)
+}
+
+export function clearContent() {
+  let mainDiv = document.getElementById('content')
+  while (mainDiv.firstChild) {
+    mainDiv.removeChild(mainDiv.lastChild)
+  }
 }
